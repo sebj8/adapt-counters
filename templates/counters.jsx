@@ -15,7 +15,7 @@ export default function Counters (props) {
       <div className={classes([
         'component__widget', 'counters__widget', hasColumns && 'has-columns', hasColumns && `cols-${_columns[screenSize]}`])}>
 
-        {props._items.map(({ title, body, _graphic, _countStart, counterLabel, _classes, _index, _isVisited, _isActive, _isAnimated }) =>
+        {props._items.map(({ title, body, _graphic, _completed, _delimitedString, counterLabel, _classes, _index, _isVisited, _isActive, _isAnimated }) =>
           <div
 
             className={classes([
@@ -24,6 +24,7 @@ export default function Counters (props) {
               _isActive && 'is-active',
               _isAnimated && 'is-animating',
               _graphic.src && 'has-image',
+              _completed && 'is-complete',
               _classes
             ])}
             key={_index}
@@ -39,7 +40,7 @@ export default function Counters (props) {
               }
 
               <div className="counters__count">
-                {_countStart} {counterLabel && <span>{html(compile(counterLabel))}</span>}
+                {_delimitedString} {counterLabel && <span>{html(compile(counterLabel))}</span>}
               </div>
 
               {title &&
