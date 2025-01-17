@@ -12,3 +12,17 @@
     font-size: 2rem;
   }
 }
+
+@keyframes fast-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.counters__item.is-complete .counters__count {
+  animation: fast-pulse 0.5s 1 alternate;
+}
+
